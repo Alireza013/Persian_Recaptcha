@@ -55,6 +55,10 @@ def check():
         Tries = 0
         lbl["foreground"] = "green"
         lbl.place(x=120, y=195)
+    elif len(txt.get()) == 0:
+        lbl["text"] = "!لطفا کپچا را در کادر وارد کنید"
+        lbl["foreground"] = "Black"
+        lbl.place(x=50, y=195)
     else:
         Tries += 1
         lbl["text"] = (".غلطه! دوباره امتحان کن\n %i:تعداد تلاش"%(Tries))
