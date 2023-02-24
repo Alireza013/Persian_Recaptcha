@@ -8,8 +8,6 @@ from tkinter import *
 import string
 import time
 
-global c_text
-
 # for gui window
 root = Tk()
 root.title("Re-Captcha")
@@ -45,17 +43,17 @@ def change():
     canvas.create_image(20,20,anchor=NW, image=img)
     canvas.mainloop()
 
+tries = 0 #number of tries
 
-Tries = 0 #number of tries
 # check captcha
 def check():
-    global Tries
-    if Tries == 10:
+    global tries
+    if tries == 10:
         exit()
     else:
         if txt.get() == c_text:
             lbl["text"] = "!درسته"
-            Tries = 0
+            tries = 0
             lbl["foreground"] = "green"
             lbl.place(x=120, y=195)
             time.sleep(0.4)
@@ -64,8 +62,8 @@ def check():
             lbl["foreground"] = "Black"
             lbl.place(x=50, y=195)
         else:
-            Tries += 1
-            lbl["text"] = (".غلطه! دوباره امتحان کن\n %i:تعداد تلاش"%(Tries))
+            tries += 1
+            lbl["text"] = (".غلطه! دوباره امتحان کن\n %i:تعداد تلاش"%(tries))
             lbl["foreground"] = "red"
             lbl.place(x=60, y=195)
             time.sleep(0.4)
